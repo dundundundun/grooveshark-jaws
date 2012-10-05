@@ -5,8 +5,7 @@ GroovesharkProxy.setSongStatusCallback(function(status) {
 });
 
 $(document).ready(function(){
-	$(window).bind("shout", function(e, myname){
-		console.log("now we're cooking with gas, " + myname); 
+	$(window).bind("lastFMGetLovedTracks", function(e, myname){
 	
 	$.get(
 		"http://ws.audioscrobbler.com/2.0/?method=user.getlovedtracks",
@@ -26,6 +25,8 @@ $(document).ready(function(){
 		});	
 
 	});
+
+
 }); 
 
 
