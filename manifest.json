@@ -1,0 +1,33 @@
+{
+  "name": "Grooveshark Proxy Extension",
+  "description": "Example extension using the Grooveshark Proxy",
+  "version": "1.0",
+  "manifest_version": 2,
+    "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html",
+    "default_title": "Grooveshark Proxy Extension"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://grooveshark.com/*"
+      ],
+      "js": [
+        "jquery-1.8.2.js",
+        "GroovesharkProxy.js",
+        "content.js"
+      ],
+      "run_at": "document_idle",
+      "patterns": [
+        "http://*/*",
+        "https://*/*"
+      ]
+    }
+  ],
+  "permissions": [
+    "http://*/*",
+    "https://*/*",
+    "tabs"
+  ]
+}
