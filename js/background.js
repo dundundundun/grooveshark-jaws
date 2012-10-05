@@ -1,7 +1,7 @@
 // Called when the url of a tab changes.
 function checkForValidUrl (tabId, changeInfo, tab) {
   // If the letter 'g' is found in the tab's URL...
-  if (tab.url.indexOf('grooveshark') > -1) {
+  if (tab.url.indexOf('://grooveshark.com') > -1) {
     // ... show the page action.
     chrome.pageAction.show(tabId);
   }
