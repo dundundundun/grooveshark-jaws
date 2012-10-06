@@ -1,12 +1,14 @@
 {
-  "name": "Grooveshark Proxy Extension",
-  "description": "Example extension using the Grooveshark Proxy",
+  "name": "b2io-shark",
   "version": "1.0",
-  "manifest_version": 2,
-    "browser_action": {
-    "default_icon": "icon.png",
+  "description": "An extension to facilitate creating Grooveshark playlists.",
+  "background": {
+    "scripts": [ "js/background.js" ]
+  },
+  "page_action": {
+    "default_icon": "img/icon-19.png",
     "default_popup": "popup.html",
-    "default_title": "Grooveshark Proxy Extension"
+    "default_title": "b2io-shark"
   },
   "content_scripts": [
     {
@@ -14,20 +16,22 @@
         "http://grooveshark.com/*"
       ],
       "js": [
-        "jquery-1.8.2.js",
-        "GroovesharkProxy.js",
-        "content.js"
-      ],
-      "run_at": "document_idle",
-      "patterns": [
-        "http://*/*",
-        "https://*/*"
+        "js/jquery.min.js",
+        "js/GroovesharkProxy.js",
+        "js/grooveshark.js",
+        "js/lastfm.js",
+        "js/hypem.js"
       ]
     }
   ],
   "permissions": [
+    "tabs",
     "http://*/*",
-    "https://*/*",
-    "tabs"
-  ]
+    "https://*/*"
+  ],
+  "icons": {
+    "48": "img/icon-48.png",
+    "128": "img/icon-128.png"
+  },
+  "manifest_version": 2
 }
