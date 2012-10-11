@@ -3,10 +3,23 @@ $(function () {
 
   $(window).bind("reddit.add_top", function (e, reddit) {
     // TODO: Show an AJAX spinner and lock down the UI while it's getting the songs.
-    console.log(reddit); 
-    
+    addSongsFromReddit(reddit, "top");
+  });
+
+  $(window).bind("reddit.add_hot", function (e, reddit) {
+    // TODO: Show an AJAX spinner and lock down the UI while it's getting the songs.
+    addSongsFromReddit(reddit, "hot");
+  });
+
+  $(window).bind("reddit.add_new", function (e, reddit) {
+    // TODO: Show an AJAX spinner and lock down the UI while it's getting the songs.
+    addSongsFromReddit(reddit, "new");
+  }); 
+
+  function addSongsFromReddit(reddit, category)
+  {  
     $.get(
-      "http://www.reddit.com/r/" + reddit + "/hot/.json",
+      "http://www.reddit.com/r/" + reddit + "/" + category + "/.json",
       {},
       function (response) {
         $.each(response.data.children, function (index, track) {
@@ -23,5 +36,5 @@ $(function () {
           }
         });
       });
-  });
+  };
 });
