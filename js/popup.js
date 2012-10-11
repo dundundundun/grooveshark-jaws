@@ -19,4 +19,16 @@ $(function () {
     // TODO: Validate that the username field has the required data.
     chrome.tabs.executeScript(null, {code:"$(window).trigger('reddit.add_top','" + $('#subreddit').val() + "');"});
   });
+
+  $("#reddit #add_hot").click(function () {
+    console.log("#reddit #add_hot");
+    // TODO: Validate that the username field has the required data.
+    chrome.tabs.executeScript(null, {code:"$(window).trigger('reddit.add_hot','" + $('#subreddit').val() + "');"});
+  });
+
+  $("#reddit #add_new").click(function () {
+    console.log("#reddit #add_new");
+    // TODO: Validate that the username field has the required data.
+    chrome.tabs.executeScript(null, {code:"$(window).trigger('reddit.add_new','" + $('#subreddit').val() + "');"});
+  });
 });
