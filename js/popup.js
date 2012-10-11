@@ -13,4 +13,10 @@ $(function () {
     // TODO: Validate that the username field has the required data.
     chrome.tabs.executeScript(null, {code:"$(window).trigger('lastfm.add_loved','" + $('#lastfm_username').val() + "');"});
   });
+
+  $("#reddit #add_top").click(function () {
+    console.log("#reddit #add_top");
+    // TODO: Validate that the username field has the required data.
+    chrome.tabs.executeScript(null, {code:"$(window).trigger('reddit.add_top','" + $('#subreddit').val() + "');"});
+  });
 });

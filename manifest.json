@@ -20,7 +20,8 @@
         "js/GroovesharkProxy.js",
         "js/grooveshark.js",
         "js/lastfm.js",
-        "js/hypem.js"
+        "js/hypem.js",
+        "js/reddit.js"
       ]
     }
   ],
