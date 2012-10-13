@@ -14,6 +14,11 @@ $(function () {
     chrome.tabs.executeScript(null, {code:"$(window).trigger('lastfm.add_loved','" + $('#lastfm_username').val() + "');"});
   });
 
+  $("#pitchfork #add_top_tracks").click(function () {
+    //console.log("#pitchfork #add_top_tracks");
+    chrome.tabs.executeScript(null, {code:"$(window).trigger('pitchfork.add_top');"});
+  });
+
   $("#reddit #add_top").click(function () {
     console.log("#reddit #add_top");
     // TODO: Validate that the username field has the required data.
