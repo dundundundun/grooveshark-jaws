@@ -20,9 +20,13 @@
         <li>
           <a href="#reddit" data-toggle="tab">Reddit</a>
         </li>
+        <li>
+          <a href="#pitchfork" data-toggle="tab">Pitchfork</a>
+        </li>
       </ul>
 
       <div class="tab-content">
+        
         <div id="lastfm" class="tab-pane active">
           <label for="lastfm_username">Username:</label>
           <input id="lastfm_username" type="text">
@@ -36,9 +40,11 @@
             <i class="icon-white icon-plus-sign"></i> Add Popular Tracks
           </button>
         </div>
+
         <div id="reddit" class="tab-pane">
-          <label for="subreddit">Subreddit:</label>
+          <label for="subreddit">Subreddit:</label> 
           <input id="subreddit" type="text">
+          </p>
           <button id="add_top" class="btn btn-primary">
             <i class="icon-white icon-plus-sign"></i> Top
           </button>
@@ -50,7 +56,14 @@
           </button>
         </div>
 
+        <div id="pitchfork" class="tab-pane">
+          <button id="add_top_tracks" class="btn btn-primary">
+            <i class="icon-white icon-plus-sign"></i> Add Top Tracks
+          </button>
+        </div>
+
       </div>
+   
     </div>
   </body>
 </html>
