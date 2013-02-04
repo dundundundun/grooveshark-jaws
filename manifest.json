@@ -21,9 +21,7 @@
         "js/grooveshark.js",
         "js/lastfm.js",
         "js/hypem.js",
-        "js/reddit.js",
-        "js/pitchfork.js",
-        "js/xml2json.js"
+        "js/reddit.js"
       ]
     }
   ],

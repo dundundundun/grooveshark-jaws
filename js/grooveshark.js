@@ -15,7 +15,9 @@ $(function () {
       function (response) {
         var song = JSON.parse(response);
 
-        GroovesharkProxy.addSongsByID(song.SongID);
+        var songs = [song.SongID];
+
+        GroovesharkProxy.addSongsByID(songs);
       }
       );
   };
