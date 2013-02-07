@@ -37,3 +37,4 @@ $(function () {
     chrome.tabs.executeScript(null, {code:"$(window).trigger('reddit.add_new','" + $('#subreddit').val() + "');"});
   });
 });
+

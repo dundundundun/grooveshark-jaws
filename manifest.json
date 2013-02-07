@@ -20,10 +20,16 @@
         "js/GroovesharkProxy.js",
         "js/grooveshark.js",
         "js/lastfm.js",
+        "js/mustache.js",
         "js/hypem.js",
         "js/reddit.js"
-      ]
+      ],
+      "css": ["css/global.css"]
     }
+  ],
+  "web_accessible_resources": [
+      "templates/byline.htm",
+      "templates/songRow.htm"
   ],
   "permissions": [
     "tabs",
