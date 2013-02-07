@@ -3,7 +3,7 @@ $(function () {
     console.log("Status", status);
   });
 
-  window.add_track = function (artist, track) {
+  window.add_track = function (artist, track, row) {
 
     console.log("add_track", artist, track);
 
@@ -16,9 +16,8 @@ $(function () {
       function (response) {
         var song = JSON.parse(response);
 
-        console.log(song); 
-
-        addSongToRow($('#lastfm-canvas'), song);
+        if (song.SongID)
+          addSongToRow($('#' + row), song);
       }
       );
   };
@@ -26,7 +25,6 @@ $(function () {
   window.addRow = function(row){
 
     $.get(chrome.extension.getURL('templates/songRow.htm'), function(template) { 
-        console.log(template)
         var column1 = $('#column1').prepend(Mustache.render(template, row));
 
         var row_id = row['row_id'];
@@ -84,8 +82,6 @@ $(function () {
  
 
 function addSongToRow(row, song){
-
-  console.log(row); 
 
   $.get(chrome.extension.getURL('templates/byline.htm'), function(template) { 
       var rendered = Mustache.render(template, song);

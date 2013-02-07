@@ -22,7 +22,7 @@ $(function () {
       function (response) {
         $.each(response.lovedtracks.track, function (index, track) {
           console.log(track)
-          add_track(track.artist.name, track.name);
+          add_track(track.artist.name, track.name, "lastfm-canvas");
         });
       });
   });
