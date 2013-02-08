@@ -15,9 +15,10 @@ $(function () {
       },
       function (response) {
         var song = JSON.parse(response);
-
-        if (song.SongID)
-          addSongToRow($('#' + row), song);
+        console.log(song)
+        if (song != null)
+          if (song.SongID)
+            addSongToRow($('#' + row), song);
       }
       );
   };

@@ -28,3 +28,7 @@
 	-o-transition: none;
 	transition: none;
 }
+
+.my-btn:hover{
+	background-position-x: 44px;  
+}
