@@ -8,6 +8,11 @@ $(function () {
     chrome.tabs.executeScript(null, {code:"$(window).trigger('hypem.add_popular');"});
   });
 
+  $("#cd #add_top").click(function () {
+    console.log("#cd #add_top");
+    chrome.tabs.executeScript(null, {code:"$(window).trigger('cd.add_top');"});
+  });
+
   $("#lastfm #add_loved").click(function () {
     console.log("#lastfm #add_loved");
     // TODO: Validate that the username field has the required data.
@@ -37,3 +42,4 @@ $(function () {
     chrome.tabs.executeScript(null, {code:"$(window).trigger('reddit.add_new','" + $('#subreddit').val() + "');"});
   });
 });
+
