@@ -3,6 +3,14 @@ $(function () {
 
   $(window).bind("lastfm.add_loved", function (e, username) {
     // TODO: Show an AJAX spinner and lock down the UI while it's getting the songs.
+      var row = {
+        row_id: "lastfm-canvas",
+        row_title: "Last FM Loved Tracks", 
+        row_description: "Your favorite songs from LastFM"
+      }
+
+      addRow(row);
+
     $.get(
       "http://ws.audioscrobbler.com/2.0/?method=user.getlovedtracks",
       {
@@ -13,7 +21,8 @@ $(function () {
       },
       function (response) {
         $.each(response.lovedtracks.track, function (index, track) {
-          add_track(track.artist.name, track.name);
+          console.log(track)
+          add_track(track.artist.name, track.name, "lastfm-canvas");
         });
       });
   });

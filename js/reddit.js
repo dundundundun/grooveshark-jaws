@@ -18,6 +18,16 @@ $(function () {
 
   function addSongsFromReddit(reddit, category)
   {  
+      row_id = reddit + "-" + category + "-canvas";
+
+      var row = {
+        row_id: row_id,
+        row_title: "/r/" + reddit, 
+        row_description: category.charAt(0).toUpperCase() + category.slice(1) + " Tracks from r/" + reddit
+      }
+
+      addRow(row);
+
     $.get(
       "http://www.reddit.com/r/" + reddit + "/" + category + "/.json",
       {},
@@ -32,7 +42,7 @@ $(function () {
             var prettyTrack = prettyTrack.replace(/ *\[[^)]*\] */g, "");
             //Split at the hyphen. The convention is typically {Artist Name} - {Song Name}
             var trackAndArtist = prettyTrack.split("-");
-            add_track(trackAndArtist[0], trackAndArtist[1]); 
+            add_track(trackAndArtist[0], trackAndArtist[1], row_id); 
           }
         });
       });
