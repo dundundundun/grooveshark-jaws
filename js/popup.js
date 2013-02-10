@@ -13,6 +13,11 @@ $(function () {
     chrome.tabs.executeScript(null, {code:"$(window).trigger('cd.add_top');"});
   });
 
+  $("#cd #add_now").click(function () {
+    console.log("#cd #add_top");
+    chrome.tabs.executeScript(null, {code:"$(window).trigger('cd.add_now_playing');"});
+  });
+
   $("#lastfm #add_loved").click(function () {
     console.log("#lastfm #add_loved");
     // TODO: Validate that the username field has the required data.
