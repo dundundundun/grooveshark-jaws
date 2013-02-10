@@ -25,4 +25,29 @@ $(function () {
         });
       });
   });
+
+  $(window).bind("pitchfork.add_best_new_tracks", function () {
+    // TODO: Show an AJAX spinner and lock down the UI while it's getting the songs.
+      var row = {
+        row_id: "pitchfork-best-new-tracks-canvas",
+        row_title: "Pitchfork Best New Tracks", 
+        row_description: "Best new tracks as reviewed by Pitchfork's writing staff."
+      }
+
+      addRow(row);
+
+    $.get(
+      "http://stark-everglades-6585.herokuapp.com/collections/3",
+      {
+
+      },
+      function (response) {
+        console.log(response); 
+        $.each(response, function (index, track) {
+          console.log(track.artist);
+          console.log(track.name);
+          add_track(track.artist, track.name, "pitchfork-best-new-tracks-canvas");
+        });
+      });
+  });
 });
