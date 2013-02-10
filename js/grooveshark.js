@@ -1,10 +1,5 @@
 $(function () {
-
-$.get(chrome.extension.getURL('templates/welcome.htm'), function(template) { 
-  $('body').prepend(Mustache.render(template, {}));
-  $('#myModal').modal();
-}); 
-
+  
   window.add_track = function (artist, track, row) {
 
     console.log("add_track", artist, track);
