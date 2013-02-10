@@ -1,6 +1,9 @@
 #ui {
   width: 500px; 
 }
+.btn{
+	margin-bottom: 10px; 
+}
 
 .tab-content {
   border: 1px solid #DDD;
