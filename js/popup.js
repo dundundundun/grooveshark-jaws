@@ -21,7 +21,7 @@ $(function () {
 
   $("#pitchfork #add_top_tracks").click(function () {
     //console.log("#pitchfork #add_top_tracks");
-    chrome.tabs.executeScript(null, {code:"$(window).trigger('pitchfork.add_top');"});
+    chrome.tabs.executeScript(null, {code:"$(window).trigger('pitchfork.add_best_new_tracks');"});
   });
 
   $("#reddit #add_top").click(function () {

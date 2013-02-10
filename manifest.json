@@ -13,11 +13,12 @@
   "content_scripts": [
     {
       "matches": [
-        "http://grooveshark.com/*"
+        "http://*/*"
       ],
       "js": [
         "js/jquery.min.js",
         "js/GroovesharkProxy.js",
+        "js/bootstrap.min.js",
         "js/grooveshark.js",
         "js/lastfm.js",
         "js/ges-server.js",
@@ -30,7 +31,8 @@
   ],
   "web_accessible_resources": [
       "templates/byline.htm",
-      "templates/songRow.htm"
+      "templates/songRow.htm",
+      "templates/welcome.htm"
   ],
   "permissions": [
     "tabs",

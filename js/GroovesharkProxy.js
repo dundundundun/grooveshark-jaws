@@ -46,7 +46,7 @@ function runOnPage() {
         f.apply(window.Grooveshark, args);
         cacheGetValues();
     });
-    window.Grooveshark.setSongStatusCallback(songStatusCallback);
+   // window.Grooveshark.setSongStatusCallback(songStatusCallback);
 }
 
 // Append and run the script.

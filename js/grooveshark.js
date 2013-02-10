@@ -1,7 +1,9 @@
 $(function () {
-  GroovesharkProxy.setSongStatusCallback(function (status) {
-    console.log("Status", status);
-  });
+
+$.get(chrome.extension.getURL('templates/welcome.htm'), function(template) { 
+  $('body').prepend(Mustache.render(template, {}));
+  $('#myModal').modal();
+}); 
 
   window.add_track = function (artist, track, row) {
 
@@ -26,49 +28,52 @@ $(function () {
   window.addRow = function(row){
 
     $.get(chrome.extension.getURL('templates/songRow.htm'), function(template) { 
-        var column1 = $('#column1').prepend(Mustache.render(template, row));
+        if ($('#' + row['row_id'] + "-container").length == 0)
+        {
+          var column1 = $('#column1').prepend(Mustache.render(template, row));
 
-        var row_id = row['row_id'];
+          var row_id = row['row_id'];
 
-        $('#' + row_id + "-container").mouseenter(function(){
-          $(this).find('.home-pageable-nav').show();
-        });
+          $('#' + row_id + "-container").mouseenter(function(){
+           $(this).find('.home-pageable-nav').show();
+          });
 
-        $('#' + row_id + "-container").mouseleave(function(){
-          $(this).find('.home-pageable-nav').hide();       
-        });
+          $('#' + row_id + "-container").mouseleave(function(){
+           $(this).find('.home-pageable-nav').hide();       
+          });
 
 
-        $('#' + row_id + "-container").find('.next-pageable-nav').click(function(){
-          
-          var num_songs = $('#' + row_id).children().length;
-          num_songs = Math.floor(num_songs/7); 
-          var inc = (num_songs) * 980;  
-          console.log(inc);
-          s = $('#' + row_id + "-container").find('.home-content.home-grid').css('left');
-          num = s.match(/\d+/g);
-          number = parseFloat(num); 
-
-          if (Math.abs(number) >= inc)
-          {
-            $('#' + row_id + "-container").find('.home-content.home-grid').animate({'left' : "0px"}, 600);
-          }
-          else
-            $('#' + row_id + "-container").find('.home-content.home-grid').animate({'left' : "-=980"}, 600);
-        });
-
-        $('#' + row_id + "-container").find('.home-pageable-nav.previous-pageable-nav').click(function(){
-          console.log("click");
-          if ($('#' + row_id + "-container").find('.home-content.home-grid').css('left') == '0px')
-          {
+          $('#' + row_id + "-container").find('.next-pageable-nav').click(function(){
+            
             var num_songs = $('#' + row_id).children().length;
             num_songs = Math.floor(num_songs/7); 
             var inc = (num_songs) * 980;  
-            $('#' + row_id + "-container").find('.home-content.home-grid').animate({'left' : "-=" + inc}, 600); 
-          }
-          else
-            $('#' + row_id + "-container").find('.home-content.home-grid').animate({'left' : "+=980"}, 600);
-        });
+            console.log(inc);
+            s = $('#' + row_id + "-container").find('.home-content.home-grid').css('left');
+            num = s.match(/\d+/g);
+            number = parseFloat(num); 
+
+            if (Math.abs(number) >= inc)
+            {
+              $('#' + row_id + "-container").find('.home-content.home-grid').animate({'left' : "0px"}, 600);
+            }
+            else
+              $('#' + row_id + "-container").find('.home-content.home-grid').animate({'left' : "-=980"}, 600);
+          });
+
+          $('#' + row_id + "-container").find('.home-pageable-nav.previous-pageable-nav').click(function(){
+            console.log("click");
+            if ($('#' + row_id + "-container").find('.home-content.home-grid').css('left') == '0px')
+            {
+              var num_songs = $('#' + row_id).children().length;
+              num_songs = Math.floor(num_songs/7); 
+              var inc = (num_songs) * 980;  
+              $('#' + row_id + "-container").find('.home-content.home-grid').animate({'left' : "-=" + inc}, 600); 
+            }
+            else
+              $('#' + row_id + "-container").find('.home-content.home-grid').animate({'left' : "+=980"}, 600);
+          });
+        }
 
     });
   };
