@@ -18,15 +18,13 @@
       "js": [
         "js/jquery.min.js",
         "js/GroovesharkProxy.js",
-        "js/bootstrap.min.js",
         "js/grooveshark.js",
         "js/lastfm.js",
         "js/ges-server.js",
         "js/mustache.js",
         "js/hypem.js",
         "js/reddit.js"
-      ],
-      "css": ["css/global.css"]
+      ]
     }
   ],
   "web_accessible_resources": [
