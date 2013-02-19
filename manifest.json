@@ -24,7 +24,8 @@
         "js/mustache.js",
         "js/hypem.js",
         "js/reddit.js"
-      ]
+      ],
+      "css": ["css/page-style.css"]
     }
   ],
   "web_accessible_resources": [
@@ -41,5 +42,6 @@
     "48": "img/shark-48.png",
     "128": "img/shark-128.png"
   },
-  "manifest_version": 2
+  "manifest_version": 2,
+  "version": "1.0.1"
 }
