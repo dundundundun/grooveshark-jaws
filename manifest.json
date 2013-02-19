@@ -8,7 +8,7 @@
   "page_action": {
     "default_icon": "img/shark-128.png",
     "default_popup": "popup.html",
-    "default_title": "b2io-shark"
+    "default_title": "Grooveshark JAWS"
   },
   "content_scripts": [
     {
