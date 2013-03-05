@@ -15,14 +15,19 @@ $(function () {
         console.log(song)
         if (song != null)
           if (song.SongID)
-            addSongToRow($('#' + row), song);
+            addSongToRow($('#' + row), song, row);
       }
       );
   };
 
+window.tracks = new Object();
+
   window.addRow = function(row){
 
     $.get(chrome.extension.getURL('templates/songRow.htm'), function(template) { 
+
+        window.tracks[row['row_id']] = new Array();
+
         if ($('#' + row['row_id'] + "-container").length == 0)
         {
           var column1 = $('#column1').prepend(Mustache.render(template, row));
@@ -35,6 +40,10 @@ $(function () {
 
           $('#' + row_id + "-container").mouseleave(function(){
            $(this).find('.home-pageable-nav').hide();       
+          });
+
+          $('#' + row_id + "-play-all").click(function(){
+            addAll(window.tracks[row['row_id']]);
           });
 
 
@@ -82,7 +91,7 @@ $(function () {
 
  
 
-function addSongToRow(row, song){
+function addSongToRow(row, song, row_name){
 
   $.get(chrome.extension.getURL('templates/byline.htm'), function(template) { 
       var rendered = Mustache.render(template, song);
@@ -94,7 +103,8 @@ function addSongToRow(row, song){
         $(this).find('.my-btn').hide(); 
       });
 
-      //has to be a better way to do this
+      window.tracks[row_name].push(song.SongID);
+
       $("#" + song.SongID).click(function(){
         var track = $(this).attr('data-song-id');
         var songs = [track];
@@ -103,4 +113,8 @@ function addSongToRow(row, song){
   });
 
 
+}
+
+function addAll(songs){
+  GroovesharkProxy.addSongsByID(songs);
 }
